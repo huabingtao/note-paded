@@ -15,7 +15,7 @@
       </div>
       <div class="event-box">
         <ul>
-          <li class="event-list" v-for="item in eventList">
+          <li class="event-list" v-for="item in eventList" :key="item.id">
             <div>{{item.content}}</div>
             <cube-button @click="moveToDone(item.id),showPopup()">完成</cube-button>
           </li>
@@ -27,7 +27,7 @@
       </div>
       <div class="event-box">
         <ul>
-          <li v-for="item in eventDoneList" class="over">
+          <li v-for="item in eventDoneList" class="over" :key="item.id">
             <div>{{item.content}}</div>
             <span class="event-time">{{item.time}}</span>
             <cube-button @click="showMessAgeBox(item.id)">删除</cube-button>
@@ -174,7 +174,7 @@ export default {
         if(action=='confirm'){
           this.deleteEvent(id)
         }else{
-          console.log('1111111')
+          console.log('取消删除')
         }
       })
     }
